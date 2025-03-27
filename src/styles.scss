@@ -2,7 +2,8 @@ body {
   background-color: rgb(247, 230, 253);
   margin: 0;
   width: 100%;
-  height: 100vh
+  height: 100vh;
+  color: #616161;
 }
 
 .header {
@@ -25,3 +26,6 @@ body {
 .router-outlet {
   margin-top: 90px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
