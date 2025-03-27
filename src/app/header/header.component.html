@@ -1,9 +1,9 @@
 <div class="row header d-flex align-items-center">
   <div class="col d-flex justify-content-start">
-    <img src="logo.png" alt="Logotipo">
+    <img src="logo.png" alt="Logotipo" [routerLink]="['']">
   </div>
   <div class="col-3 d-flex">
-    <button mat-flat-button>
+    <button mat-flat-button [routerLink]="['/register-resume']">
       Cadastrar currículo
     </button>
   </div>
