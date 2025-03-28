@@ -31,3 +31,9 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-container {
+  background: rgb(255 249 255);
+  padding-top: 1rem;
+  max-width: calc(100vw - 180px);
+}
