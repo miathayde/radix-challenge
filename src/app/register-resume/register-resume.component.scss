@@ -1,0 +1,11 @@
+h3 {
+  padding-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+::ng-deep .checkbox {
+  .mdc-label {
+    color: #616161;
+  }
+}
