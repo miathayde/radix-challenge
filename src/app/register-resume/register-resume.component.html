@@ -2,7 +2,7 @@
   <h3>Cadastro de currículo</h3>
 
   <div class="container form-container">
-    <mat-tab-group [selectedIndex]="selectedTabIndex">
+    <mat-tab-group [(selectedIndex)]="selectedTabIndex">
       <mat-tab label="Dados pessoais">
         <app-personal-data [personalData]="personalData" (data)="setPersonalData($event)"></app-personal-data>
       </mat-tab>
@@ -12,9 +12,13 @@
     </mat-tab-group>
     <div class="row d-flex justify-content-between">
       <div class="col">
-        <button mat-stroked-button (click)="cleanAll()">
+        <button mat-stroked-button (click)="cleanAll()" style="margin-right: 10px;">
           Limpar
           <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="showJSON = !showJSON">
+          Mostrar JSON
+          <mat-icon>sentiment_neutral</mat-icon>
         </button>
       </div>
       <div class="col d-flex justify-content-end">
@@ -22,7 +26,16 @@
           Próxima página
           <mat-icon>arrow_forward</mat-icon>
         </button>
+        <button mat-fab extended (click)="send()" *ngIf="selectedTabIndex == 1">
+          Enviar
+          <mat-icon>check</mat-icon>
+        </button>
       </div>
     </div>
+  </div>
+
+  <div class="container json-container" *ngIf="showJSON">
+    <h4>JSON dos dados do formulário</h4>
+    {{ personalData | json }}
   </div>
 </div>

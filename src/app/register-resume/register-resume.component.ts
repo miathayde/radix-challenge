@@ -38,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class RegisterResumeComponent {
   personalData: PersonalDataModel = new PersonalDataModel();
   selectedTabIndex: number = 0;
+  showJSON: boolean = false;
 
   setPersonalData(data: PersonalDataModel) {
     this.personalData = data;
@@ -49,5 +50,9 @@ export class RegisterResumeComponent {
 
   cleanAll() {
     this.personalData = new PersonalDataModel();
+  }
+
+  send() {
+
   }
 }
