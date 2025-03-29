@@ -17,7 +17,8 @@
           <mat-icon>delete</mat-icon>
         </button>
         <button mat-stroked-button (click)="showJSON = !showJSON">
-          Mostrar JSON
+          <span *ngIf="!showJSON">Mostrar JSON</span>
+          <span *ngIf="showJSON">Ocultar JSON</span>
           <mat-icon>sentiment_neutral</mat-icon>
         </button>
       </div>
