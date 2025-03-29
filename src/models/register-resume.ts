@@ -1,7 +1,7 @@
-import { PersonalDataComponent } from "../app/register-resume/personal-data/personal-data.component";
+import { PersonalDataModel } from "./personal-data";
 import { ProfessionalExperienceModel } from "./professional-experience";
 
 export class RegisterResumeModel {
-  personalData: PersonalDataComponent = new PersonalDataComponent();
+  personalData: PersonalDataModel = new PersonalDataModel();
   professionalExperiences: Array<ProfessionalExperienceModel> = [];
 }
