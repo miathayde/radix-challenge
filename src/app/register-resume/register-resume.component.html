@@ -10,5 +10,19 @@
 
       </mat-tab>
     </mat-tab-group>
+    <div class="row d-flex justify-content-between">
+      <div class="col">
+        <button mat-stroked-button (click)="cleanAll()">
+          Limpar
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <button mat-flat-button (click)="nextTab()" *ngIf="selectedTabIndex == 0">
+          Próxima página
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
