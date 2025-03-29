@@ -1,1 +1,98 @@
-<p>personal-data works!</p>
+<form #meuForm="ngForm">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Nome</mat-label>
+        <input matInput name="name" [(ngModel)]="personalData.name"
+        (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput name="lastName" [(ngModel)]="personalData.lastName"
+        (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row d-flex align-items-end">
+    <div class="col">
+      <mat-checkbox class="checkbox" name="isBrasilian" [(ngModel)]="personalData.isBrasilian"
+      (ngModelChange)="onFormsChange()">
+        Sou brasileiro(a)
+      </mat-checkbox>
+      <mat-form-field class="w-100">
+        <mat-label>CPF</mat-label>
+        <input matInput type="number" name="cpf" [(ngModel)]="personalData.cpf"
+        [disabled]="!personalData.isBrasilian" (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Data de nascimento</mat-label>
+        <input matInput [matDatepicker]="picker" name="birthday"
+        [(ngModel)]="personalData.birthday" (ngModelChange)="onFormsChange()">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Gênero</mat-label>
+        <mat-select name="gender" [(ngModel)]="personalData.gender"
+        (ngModelChange)="onFormsChange()">
+          <mat-option *ngFor="let item of genderOptions" [value]="item">
+            {{ item }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row d-flex align-items-end">
+    <div class="col">
+      <div class="row">
+        <span>Você possui alguma deficiência?</span>
+        <mat-radio-group aria-label="Select an option" name="hasDisability"
+        [(ngModel)]="personalData.hasDisability" (ngModelChange)="onFormsChange()">
+          <mat-radio-button [value]="true">Sim</mat-radio-button>
+          <mat-radio-button [value]="false">Não</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field class="w-100">
+        <mat-label>Qual o tipo de deficiência?</mat-label>
+        <input matInput name="isBrasilian" [(ngModel)]="personalData.disability"
+        [disabled]="!personalData.hasDisability" (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" [(ngModel)]="personalData.email"
+        placeholder="pat@example.com" (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Celular</mat-label>
+        <input matInput name="phone" [(ngModel)]="personalData.phone"
+        placeholder="(xx) xxxxx-xxxx" (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>LinkedIn</mat-label>
+        <input matInput type="url" name="linkedIn" [(ngModel)]="personalData.linkedIn"
+        (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100">
+        <mat-label>Github</mat-label>
+        <input matInput type="url" name="github" [(ngModel)]="personalData.github"
+        (ngModelChange)="onFormsChange()">
+      </mat-form-field>
+    </div>
+  </div>
+</form>
