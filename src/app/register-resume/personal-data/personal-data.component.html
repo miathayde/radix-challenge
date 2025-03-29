@@ -15,6 +15,7 @@
       </mat-form-field>
     </div>
   </div>
+
   <div class="row d-flex align-items-end">
     <div class="col">
       <mat-checkbox class="checkbox" name="isBrasilian" [(ngModel)]="personalData.isBrasilian"
@@ -48,6 +49,7 @@
       </mat-form-field>
     </div>
   </div>
+
   <div class="row d-flex align-items-end">
     <div class="col">
       <div class="row">
@@ -60,7 +62,7 @@
       </div>
       <mat-form-field class="w-100">
         <mat-label>Qual o tipo de deficiência?</mat-label>
-        <input matInput name="isBrasilian" [(ngModel)]="personalData.disability"
+        <input matInput name="disability" [(ngModel)]="personalData.disability"
         [disabled]="!personalData.hasDisability" (ngModelChange)="onFormsChange()">
       </mat-form-field>
     </div>
@@ -79,6 +81,7 @@
       </mat-form-field>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
       <mat-form-field class="w-100">
