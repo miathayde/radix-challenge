@@ -3,9 +3,14 @@ h3 {
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
+ span {
+  color: #e9e0e4;
+ }
 
-::ng-deep .checkbox {
-  .mdc-label {
-    color: #616161;
-  }
-}
+ ::ng-deep .mat-mdc-tab-label-container {
+  margin-bottom: 1rem;
+ }
+
+ ::ng-deep .mat-mdc-tab-body-content {
+  overflow: hidden !important;
+ }

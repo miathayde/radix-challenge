@@ -2,46 +2,13 @@
   <h3>Cadastro de currículo</h3>
 
   <div class="container form-container">
-    <div class="row">
-      <div class="col">
-        <mat-form-field class="w-100">
-          <mat-label>Nome</mat-label>
-          <input matInput [(ngModel)]="resume.name">
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field class="w-100">
-          <mat-label>Sobrenome</mat-label>
-          <input matInput [(ngModel)]="resume.lastName">
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row d-flex align-items-end">
-      <div class="col">
-        <mat-checkbox class="checkbox" [(ngModel)]="resume.isBrasilian">Sou brasileiro(a)</mat-checkbox>
-        <mat-form-field class="w-100">
-          <mat-label>CPF</mat-label>
-          <input matInput type="number" [(ngModel)]="resume.cpf" [disabled]="!resume.isBrasilian">
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field class="w-100">
-          <mat-label>Data de nascimento</mat-label>
-          <input matInput [matDatepicker]="picker" [(ngModel)]="resume.birthday">
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field class="w-100">
-          <mat-label>Gênero</mat-label>
-          <mat-select [(ngModel)]="resume.gender">
-            <mat-option *ngFor="let item of genderOptions" [value]="item">
-              {{ item }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
+    <mat-tab-group [selectedIndex]="selectedTabIndex">
+      <mat-tab label="Dados pessoais">
+        <app-personal-data [personalData]="personalData" (data)="setPersonalData($event)"></app-personal-data>
+      </mat-tab>
+      <mat-tab label="Experiências profissionais">
+
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>
