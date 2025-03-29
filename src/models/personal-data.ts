@@ -1,4 +1,4 @@
-export class ResumeModel {
+export class PersonalDataModel {
   name: string;
   lastName: string;
   birthday: Date;
