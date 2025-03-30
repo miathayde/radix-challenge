@@ -30,7 +30,7 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class ProfessionalExperienceComponent implements OnInit {
   @Output() data: EventEmitter<ProfessionalExperienceModel[]> = new EventEmitter<ProfessionalExperienceModel[]>();
-  @Input() experiences: Array<ProfessionalExperienceModel> = [];
+  @Input() experiences: Array<ProfessionalExperienceModel> =  new Array<ProfessionalExperienceModel>();
 
   months: Array<string> = [
     "janeiro",
