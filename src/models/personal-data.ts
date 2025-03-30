@@ -1,7 +1,7 @@
 export class PersonalDataModel {
   name: string = '';
   lastName: string = '';
-  birthday: Date = new Date();
+  birthday: Date | null = null;
   gender: string = '';
   phone: string = '';
   email: string = '';
