@@ -1,1 +1,119 @@
-<p>professional-experience works!</p>
+<form #formExperience="ngForm">
+  <div class="form-experience" *ngFor="let item of experiences; let i = index; let last = last;">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="w-100" >
+          <mat-label>Nome da empresa</mat-label>
+          <input matInput [name]="'company'+i" [(ngModel)]="experiences[i].company"
+          (ngModelChange)="onFormsChange()">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Cargo</mat-label>
+          <input matInput [name]="'position'+i" [(ngModel)]="experiences[i].position"
+          (ngModelChange)="onFormsChange()">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="w-100" >
+          <mat-label>País</mat-label>
+          <input matInput [name]="'country'+i" [(ngModel)]="experiences[i].country"
+          (ngModelChange)="onFormsChange()">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Modelo de contratação</mat-label>
+          <mat-select [name]="'workModel'+i" [(ngModel)]="experiences[i].workModel">
+            <mat-option *ngFor="let model of workModels" [value]="model">
+              {{ model }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-1 col-12 d-flex align-items-center">
+        <span class="light-text">Início: </span>
+      </div>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Mês</mat-label>
+          <mat-select [name]="'initialMonth'+i" [(ngModel)]="experiences[i].initialMonth">
+            <mat-option *ngFor="let month of months" [value]="month">
+              {{ month }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Ano</mat-label>
+          <input matInput [name]="'initialYear'+i" [(ngModel)]="experiences[i].initialYear"
+          (ngModelChange)="onFormsChange()">
+        </mat-form-field>
+      </div>
+      <div class="col-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-1 col-12 d-flex align-items-center">
+        <span class="light-text">Término: </span>
+      </div>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Mês</mat-label>
+          <mat-select [name]="'endMonth'+i" [disabled]="experiences[i].actualWork"
+          [(ngModel)]="experiences[i].endMonth">
+            <mat-option *ngFor="let month of months" [value]="month">
+              {{ month }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Ano</mat-label>
+          <input matInput [name]="'endYear'+i" [disabled]="experiences[i].actualWork"
+          [(ngModel)]="experiences[i].endYear"
+          (ngModelChange)="onFormsChange()">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-3 col-12 d-flex align-items-center">
+        <p><mat-slide-toggle [name]="'actualWork'+i" [(ngModel)]="experiences[i].actualWork"
+        (ngModelChange)="onToggleActualWork(i)">
+          Este é meu emprego atual
+        </mat-slide-toggle></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput [name]="'description'+i" [(ngModel)]="experiences[i].description"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-divider *ngIf="!last"></mat-divider>
+  </div>
+</form>
+
+<div class="btn">
+  <button mat-mini-fab aria-label="Botão para adicionar nova experiência"
+  matTooltip="Adicionar outra experiência" (click)="addExperience()"
+  style="margin-right: 10px;">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-mini-fab aria-label="Botão para remover última experiência"
+  matTooltip="Remover experiência" (click)="removeExperience()"
+  [disabled]="experiences.length == 1">
+    <mat-icon>remove</mat-icon>
+  </button>
+</div>
