@@ -4,10 +4,12 @@
   <div class="container form-container">
     <mat-tab-group [(selectedIndex)]="selectedTabIndex">
       <mat-tab label="Dados pessoais">
-        <app-personal-data [personalData]="personalData" (data)="setPersonalData($event)"></app-personal-data>
+        <app-personal-data [personalData]="registerResume.personalData"
+        (data)="setPersonalData($event)"></app-personal-data>
       </mat-tab>
       <mat-tab label="Experiências profissionais">
-
+        <app-professional-experience [experiences]="registerResume.professionalExperiences"
+        (data)="setExperiences($event)"></app-professional-experience>
       </mat-tab>
     </mat-tab-group>
     <div class="row d-flex justify-content-between">
@@ -37,6 +39,6 @@
 
   <div class="container json-container" *ngIf="showJSON">
     <h4>JSON dos dados do formulário</h4>
-    {{ personalData | json }}
+    {{ registerResume | json }}
   </div>
 </div>

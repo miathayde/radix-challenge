@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PersonalDataModel } from '../../models/personal-data';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfessionalExperienceComponent } from './professional-experience/professional-experience.component';
+import { ProfessionalExperienceModel } from '../../models/professional-experience';
+import { RegisterResumeModel } from '../../models/register-resume';
 
 @Component({
   selector: 'app-register-resume',
@@ -21,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     MatTabsModule,
     PersonalDataComponent,
+    ProfessionalExperienceComponent,
     FormsModule,
     MatButtonModule,
     MatInputModule,
@@ -36,12 +40,17 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './register-resume.component.scss'
 })
 export class RegisterResumeComponent {
-  personalData: PersonalDataModel = new PersonalDataModel();
+  experiences: Array<ProfessionalExperienceModel> = [];
+  registerResume: RegisterResumeModel = new RegisterResumeModel();
   selectedTabIndex: number = 0;
   showJSON: boolean = false;
 
   setPersonalData(data: PersonalDataModel) {
-    this.personalData = data;
+    this.registerResume.personalData = data;
+  }
+
+  setExperiences(data: ProfessionalExperienceModel[]) {
+    this.registerResume.professionalExperiences = data;
   }
 
   nextTab() {
@@ -49,7 +58,7 @@ export class RegisterResumeComponent {
   }
 
   cleanAll() {
-    this.personalData = new PersonalDataModel();
+    this.registerResume.personalData = new PersonalDataModel();
   }
 
   send() {
