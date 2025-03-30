@@ -45,3 +45,22 @@
     <p>{{ registerResume.professionalExperiences | json }}</p>
   </div>
 </div>
+
+<ng-template #dialogTemplate>
+  <h2 mat-dialog-title>Sucesso!</h2>
+  <mat-dialog-content>Os dados foram salvos com sucesso!</mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">OK</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-template #dialogErrorTemplate>
+  <h2 mat-dialog-title>Atenção!</h2>
+  <mat-dialog-content>
+    <p>É necessário fazer algumas correções no seu formulário. Leia abaixo os campos que precisam ser preenchidos:</p>
+    <p style="color:rgb(171, 59, 98)" *ngFor="let item of errorDialogMessages">* {{ item }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">OK</button>
+  </mat-dialog-actions>
+</ng-template>
