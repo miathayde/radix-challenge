@@ -52,6 +52,7 @@ http://localhost:4200/
 ## :hammer_and_wrench: Melhorias para o futuro
 
 - Correção da barra de progresso atendendo de maneira correta ao preenchimento dos campos do formulário.
+- Aplicar validação dos campos do formulário de 'Experiências profissionais'.
 - Campos 'LinkedIn' e 'GitHub' não permitindo apagar o link do site, deixando apenas completar o formulário com o seu usuário.
 - Dados sendo salvos em JSON dentro do projeto.
 - Criação de tela exibindo vagas fictícias e transformando o atual formulário em um 'Banco de Talentos'.
