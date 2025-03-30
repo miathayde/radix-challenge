@@ -24,8 +24,9 @@
       </mat-checkbox>
       <mat-form-field class="w-100">
         <mat-label>CPF</mat-label>
-        <input matInput type="number" name="cpf" [(ngModel)]="personalData.cpf"
-        [disabled]="!personalData.isBrasilian" (ngModelChange)="onFormsChange()">
+        <input matInput type="text" name="cpf" [(ngModel)]="personalData.cpf"
+        [disabled]="!personalData.isBrasilian" (ngModelChange)="onFormsChange()"
+        mask="000.000.000-00">
       </mat-form-field>
     </div>
     <div class="col">
@@ -76,8 +77,9 @@
     <div class="col">
       <mat-form-field class="w-100">
         <mat-label>Celular</mat-label>
-        <input matInput name="phone" [(ngModel)]="personalData.phone"
-        placeholder="(xx) xxxxx-xxxx" (ngModelChange)="onFormsChange()">
+        <input matInput name="text" [(ngModel)]="personalData.phone"
+        placeholder="(xx) xxxxx-xxxx" (ngModelChange)="onFormsChange()"
+        mask="(00) 00000-0000">
       </mat-form-field>
     </div>
   </div>
@@ -93,7 +95,7 @@
     <div class="col">
       <mat-form-field class="w-100">
         <mat-label>Github</mat-label>
-        <input matInput type="url" name="github" [(ngModel)]="personalData.github"
+        <input matInput type="text" name="github" [(ngModel)]="personalData.github"
         (ngModelChange)="onFormsChange()">
       </mat-form-field>
     </div>
