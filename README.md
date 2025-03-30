@@ -1,11 +1,11 @@
-# Cadastro de currículos em Empresa Fictícia
+# :briefcase: Cadastro de currículos em Empresa Fictícia
 
 Um projeto simulando uma empresa fictícia, na qual seu nome também é Empresa Fictícia, onde disponibiliza um formulário de cadastro, com alguns campos pessoais obrigatórios e campos de experiência profissional ilimitados.
 Estes campos são salvos em Local Storage, mas o usuário também pode apagá-los.
 
 A intenção desta funcionalidade é mostrar meus conhecimentos no Angular junto com o Angular Material no uso de componentes da biblioteca, e usando também o Boostrap no seu sistema de grade para tentar atender ao máximo na responsividade do projeto.
 
-## 🖥️ Preview
+## :desktop_computer: Preview
 
 ### Tela inicial
 
@@ -19,7 +19,7 @@ A intenção desta funcionalidade é mostrar meus conhecimentos no Angular junto
 
 ![](public/experiencias-profissionais.gif)
 
-## 🧭 Instruções de instalação e execução
+## :pushpin: Instruções de instalação e execução
 
 **Antes de tudo**
 
@@ -43,4 +43,17 @@ npm install
 ng serve
 ```
 
-E então acessar o projeto na seguinte URL: http://localhost:4200/
+E então acessar o projeto na seguinte URL: 
+
+```bash
+http://localhost:4200/
+```
+
+## :hammer_and_wrench: Melhorias para o futuro
+
+- Correção da barra de progresso atendendo de maneira correta ao preenchimento dos campos do formulário.
+- Campos 'LinkedIn' e 'GitHub' não permitindo apagar o link do site, deixando apenas completar o formulário com o seu usuário.
+- Dados sendo salvos em JSON dentro do projeto.
+- Criação de tela exibindo vagas fictícias e transformando o atual formulário em um 'Banco de Talentos'.
+- Tela de login para funcionários.
+- Cadastro de novas vagas e possibilitando criação de formulários próprios para cada vaga.
