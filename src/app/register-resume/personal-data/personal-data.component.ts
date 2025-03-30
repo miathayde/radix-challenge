@@ -46,6 +46,8 @@ export class PersonalDataComponent implements OnInit{
   }
 
   onFormsChange() {
+    if (!this.personalData.hasDisability) this.personalData.disability = '';
+    if (!this.personalData.isBrasilian) this.personalData.cpf = '';
     this.data.emit(this.personalData);
   }
 
