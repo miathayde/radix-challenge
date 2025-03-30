@@ -1,59 +1,46 @@
-# RadixChallenge
+# Cadastro de currículos em Empresa Fictícia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+Um projeto simulando uma empresa fictícia, na qual seu nome também é Empresa Fictícia, onde disponibiliza um formulário de cadastro, com alguns campos pessoais obrigatórios e campos de experiência profissional ilimitados.
+Estes campos são salvos em Local Storage, mas o usuário também pode apagá-los.
 
-## Development server
+A intenção desta funcionalidade é mostrar meus conhecimentos no Angular junto com o Angular Material no uso de componentes da biblioteca, e usando também o Boostrap no seu sistema de grade para tentar atender ao máximo na responsividade do projeto.
 
-To start a local development server, run:
+## 🖥️ Preview
+
+### Tela inicial
+
+<img src="tela-inicial.png" alt="Tela inicial">
+
+### Formulário de dados pessoais
+
+<img src="dados-pessoais.gif" alt="Tela de dados pessoais">
+
+### Formulário de experiências profissionais
+
+<img src="experiencias-profissionais.gif" alt="Tela de experiências profissionais">
+
+## 🧭 Instruções de instalação e execução
+
+**Antes de tudo**
+
+Para conseguir rodar o projeto é necessário ter o Node.js na versão 18.20.7 ou superior, e o Angular na versão 19.2.5 ou superior.
+
+**Primeiro: clone o repositório**
+
+```bash
+git clone https://github.com/miathayde/radix-challenge.git
+```
+
+**Segundo: instale as dependências do projeto**
+
+```bash
+npm install
+```
+
+**Terceiro: rode o projeto**
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+E então acessar o projeto na seguinte URL: http://localhost:4200/
