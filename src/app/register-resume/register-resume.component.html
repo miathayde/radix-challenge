@@ -39,6 +39,9 @@
 
   <div class="container json-container" *ngIf="showJSON">
     <h4>JSON dos dados do formulário</h4>
-    {{ registerResume | json }}
+    <p><b>Dados pessoais:</b></p>
+    <p>{{ registerResume.personalData | json }}</p>
+    <p style="margin-top: 1rem;"><b>Experiências profissionais:</b></p>
+    <p>{{ registerResume.professionalExperiences | json }}</p>
   </div>
 </div>
