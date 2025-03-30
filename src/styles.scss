@@ -34,7 +34,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .form-container {
   background: #8d738f;
   max-width: calc(100vw - 180px);
-  min-height: 540px;
+  padding-bottom: 1rem;
 }
 
 .json-container {
@@ -43,3 +43,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #aa94ad;
   max-width: calc(100vw - 180px);
 }
+
+.light-text {
+  color: #e9e0e4;
+ }
