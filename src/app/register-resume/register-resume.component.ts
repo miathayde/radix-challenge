@@ -17,6 +17,7 @@ import { ProfessionalExperienceComponent } from './professional-experience/profe
 import { ProfessionalExperienceModel } from '../../models/professional-experience';
 import { RegisterResumeModel } from '../../models/register-resume';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register-resume',
@@ -36,7 +37,8 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   templateUrl: './register-resume.component.html',
   styleUrl: './register-resume.component.scss'
@@ -47,13 +49,15 @@ export class RegisterResumeComponent {
   showJSON: boolean = false;
   @ViewChild('dialogTemplate') dialogTemplate!: TemplateRef<any>;
   @ViewChild('dialogErrorTemplate') dialogErrorTemplate!: TemplateRef<any>;
+  @ViewChild('dialogClearLocalStorageTemplate') dialogClearLocalStorageTemplate!: TemplateRef<any>;
   @ViewChild(PersonalDataComponent) personalComponent: PersonalDataComponent;
   @ViewChild(ProfessionalExperienceComponent) professionalComponent: ProfessionalExperienceComponent;
   dialogRef!: MatDialogRef<any>;
   errorDialogMessages: string[] = [];
 
   constructor(private matDialog: MatDialog,
-    private cdref: ChangeDetectorRef
+    private cdref: ChangeDetectorRef,
+    private snackBar: MatSnackBar
   ) {}
 
   setPersonalData(data: PersonalDataModel) {
@@ -68,12 +72,16 @@ export class RegisterResumeComponent {
     this.selectedTabIndex = 1;
   }
 
-  cleanAll() {
+  clearAll(localStorageMessage: boolean = false) {
     this.registerResume = new RegisterResumeModel();
     this.cdref.detectChanges();
     this.personalComponent.setUrlInputs();
     this.professionalComponent.addExperience();
     this.selectedTabIndex = 0;
+
+    if (localStorageMessage) {
+      this.dialogRef = this.matDialog.open(this.dialogClearLocalStorageTemplate);
+    }
   }
 
   send() {
@@ -81,7 +89,7 @@ export class RegisterResumeComponent {
       localStorage.setItem('register-resume',JSON.stringify(this.registerResume));
       this.dialogRef = this.matDialog.open(this.dialogTemplate);
       this.dialogRef.afterClosed().subscribe(result => {
-        this.cleanAll();
+        this.clearAll();
       });
     } else {
       this.dialogRef = this.matDialog.open(this.dialogErrorTemplate);
@@ -98,6 +106,7 @@ export class RegisterResumeComponent {
     if (!personal.gender) this.errorDialogMessages.push('Gênero é um campo obrigatório.');
     if (!personal.email) this.errorDialogMessages.push('Email é um campo obrigatório.');
     if (!personal.phone) this.errorDialogMessages.push('Celular é um campo obrigatório.');
+    if (personal.hasDisability == null) this.errorDialogMessages.push("'Você possui alguma deficiência?' é um campo obrigatório.");
 
     if (personal.isBrasilian && !personal.cpf) {
       this.errorDialogMessages.push("É necessário preencher o campo CPF quando selecionado 'Sou brasileiro(a)'.");
@@ -111,5 +120,15 @@ export class RegisterResumeComponent {
     } else {
       return true;
     }
+  }
+
+  clearLocalStorage() {
+    localStorage.removeItem('register-resume');
+    this.snackBar.open('Dados de Local Storage limpos com sucesso.', 'Ok', {
+      duration: 10000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center',
+      panelClass: ['custom-snackbar'],
+    });
   }
 }
