@@ -9,15 +9,15 @@ A intenção desta funcionalidade é mostrar meus conhecimentos no Angular junto
 
 ### Tela inicial
 
-<img src="tela-inicial.png" alt="Tela inicial">
+![](public/tela-inicial.png)
 
 ### Formulário de dados pessoais
 
-<img src="dados-pessoais.gif" alt="Tela de dados pessoais">
+![](public/dados-pessoais.gif)
 
 ### Formulário de experiências profissionais
 
-<img src="experiencias-profissionais.gif" alt="Tela de experiências profissionais">
+![](public/experiencias-profissionais.gif)
 
 ## 🧭 Instruções de instalação e execução
 
